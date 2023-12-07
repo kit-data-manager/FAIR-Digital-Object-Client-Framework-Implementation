@@ -45,7 +45,12 @@ This web application is built using Flask and integrates various backend service
 - **Operation Execution**: Manages the execution of TPM-defined operations.
 
 ### Walking Example
-
+- The following figure shows an example for querying the graph using a profile name:
+  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/profiles_query_ex.png)
+- The following figure shows an example for querying the graph using an attribute name:
+  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/attributes_query_ex.png)
+- The following figure shows an example for an operation result, triggered by a previous query and displaying the option to request a new query:
+  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/operation_results_ex.png)
 ### MRI Data Handling (mri_api.py)
 - **DICOM to Tensor Conversion**: Converts DICOM images to tensors for analysis.
 - **Image Augmentation and Processing**: Performs image augmentations, normalization, and resizing.
