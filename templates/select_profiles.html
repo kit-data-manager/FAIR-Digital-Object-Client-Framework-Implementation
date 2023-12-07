@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dictionary Display</title>
+    <style>
+        .dictionary-table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        .dictionary-table th, .dictionary-table td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    {% macro render_dict(dictionary, path=[]) %}
+        {% for key, value in dictionary.items() %}
+            {% if value is mapping %}
+                {{ render_dict(value, path + [key]) }}
+            {% elif value is iterable and not value is string %}
+                <tr>
+                    {% for p in path %}
+                        <td>{{ p }}</td>
+                    {% endfor %}
+                    <td>{{ key }}</td>
+                    <td>{{ value|length }}</td>
+                    <td>
+                        {% if path|length >= 2 %}
+                            <input type="checkbox" name="selected_items" value="{{ path[2] }}|{{ path[3] }}|{{ value }}">
+                        {% else %}
+                            <input type="checkbox" name="selected_items" value="{{ key }}|{{ value }}">
+                        {% endif %}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    {% for p in path %}
+                        <td>{{ p }}</td>
+                    {% endfor %}
+                    <td>{{ key }}</td>
+                    <td>{{ value }}</td>
+                    <td></td> <!-- Column for number of elements, if not a list -->
+                    <td></td> <!-- Checkbox column, empty for non-list items -->
+                </tr>
+            {% endif %}
+        {% endfor %}
+    {% endmacro %}
+
+    <form id="exportForm" action="/select_profiles" method="post">
+        <table class="dictionary-table">
+            <tr>
+                <th>Profile</th>
+                <th>Operation Name</th>
+                <th>Operation PID</th>
+                <th>OutputType Name</th>
+                <th>OutputType PID</th>
+                <th>Number of FDOs</th>
+                <th>Select</th>
+            </tr>
+            {{ render_dict(data) }}
+        </table>
+        <input type="submit" value="Request">
+    </form>
+
+    <script>
+        document.getElementById('exportForm').onsubmit = function() {
+            var exportData = {};
+            var checkboxes = document.querySelectorAll('input[name="selected_items"]:checked');
+            checkboxes.forEach(function(checkbox) {
+                var parts = checkbox.value.split('|');
+                var level2Key = parts[0];
+                var elementsList = JSON.parse(parts[1]);
+                exportData[level2Key] = elementsList;
+            });
+            // Send exportData to the server
+            console.log("Export Data: ", exportData);
+            return true; // return false to prevent default form submission
+        };
+    </script>
+</body>
+</html>

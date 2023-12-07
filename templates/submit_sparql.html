@@ -1,0 +1,12 @@
+<form action="/execute_query" method="post" id="query-form">
+  <label for="query-select">Choose a query:</label>
+  <select name="query_select" id="query-select">
+    <option value="profiles">Query for profiles</option>
+    <option value="attributes">Query for attributes</option>
+  </select>
+
+  <label for="input-text">Enter values (separate with commas):</label>
+  <input type="text" id="input-text" name="input_text">
+
+  <input type="submit" value="Execute Query">
+</form>

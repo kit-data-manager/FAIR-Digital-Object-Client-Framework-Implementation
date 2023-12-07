@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dictionary Display</title>
+    <style>
+        .dictionary-table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        .dictionary-table th, .dictionary-table td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    {% macro render_dict(dictionary, path=[]) %}
+    {% for key, value in dictionary.items() %}
+        {% if value is mapping %}
+            {{ render_dict(value, path + [key]) }}
+        {% else %}
+            <tr>
+                {% for p in path %}
+                    <td>{{ p }}</td>
+                {% endfor %}
+                <td>{{ key }}</td>
+                <td>
+                    {% if value is iterable and not value is string %}
+                        {% for item in value %}
+                            {% if loop.index > 1 %}, {% endif %}
+                            {{ item['value'] if 'value' in item else item }}
+                        {% endfor %}
+                    {% else %}
+                        {{ value }}
+                    {% endif %}
+                </td>
+                <td><input type="checkbox" name="selected_items" value="{{ path[0] }}|{{ path[2] }}|{{ key }}"></td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+
+
+    <form id="exportForm" action="/select_attributes" method="post">
+        <table class="dictionary-table">
+            <tr>
+                <th>Attribute</th>
+                <th>Operation Name</th>
+                <th>Operation PID</th>
+                <th>OutputType Name</th>
+                <th>OutputType PID</th>
+                <th>Select</th>
+            </tr>
+            {{ render_dict(data) }}
+        </table>
+        <input type="submit" value="Request">
+    </form>
+
+    <script>
+        document.getElementById('exportForm').onsubmit = function() {
+            var exportData = {};
+            var checkboxes = document.querySelectorAll('input[name="selected_items"]:checked');
+            checkboxes.forEach(function(checkbox) {
+                var parts = checkbox.value.split('|');
+                var level2Key = parts[0];
+                var elementsList = JSON.parse(parts[1]);
+                exportData[level2Key] = elementsList;
+            });
+            // Send exportData to the server
+            console.log("Export Data: ", exportData);
+            return true; // return false to prevent default form submission
+        };
+    </script>
+</body>
+</html>
