@@ -1,0 +1,8 @@
+Flask==1.1.2
+requests==2.25.1
+pydicom==2.1.2
+torch==1.7.1
+torchvision==0.8.2
+paramiko==2.7.2
+redis==3.5.3
+skosify==2.0.0
