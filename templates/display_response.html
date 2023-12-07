@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Operation Results</title>
+</head>
+<body>
+    <h1>Operation Results</h1>
+    <p>{{ outputType }} was successfully executed for {{ responses|length }} responses, the data is located at directory: {{ folder_name }}.</p>
+
+    <!-- Link to execute_query -->
+    <a href="{{ url_for('execute_query') }}">Return to query selection</a>
+</body>
+</html>
