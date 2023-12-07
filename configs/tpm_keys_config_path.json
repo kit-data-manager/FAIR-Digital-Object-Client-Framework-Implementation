@@ -1,0 +1,27 @@
+{
+    "digitalObjectLocation": "21.T11148/b8457812905b83046284",
+    "license": "21.T11148/2f314c8fe5fb6a0063a8",
+    "checksum": "21.T11148/82e2503c49209e987740",
+    "dateCreated": "21.T11148/aafd5fb4c7222e2d950a",
+    "externalRecordDependentAccessProtocol":"21.T11148/3efcf2e614698fad1370",
+    "localPathAccessProtocol":"21.T11148/ef599b63c00224181bdf",
+    "operationAccessProtocol": "21.T11148/c49530fe33af5e14083f",
+    "httpProtocol": "21.T11148/092d989a320c7ce0f33d",
+    "statusCode": "21.T11148/c48a9f5244ff2d1e0ef6",
+    "httpMethod": "21.T11148/f09edd97b002e0ab106c",
+    "httpParameter": "21.T11148/63e94f8b75f6d049cd78",
+    "httpHeaderProperty": "21.T11148/520de7443d00d6ff4dc3",
+    "httpMultipartFormDataProperty": "21.T11148/5b4c7e79077e647e3678",
+    "httpDataProperty": "21.T11148/959bfab357298d6a52f2",
+    "parameterKey": "21.T11148/9ded868edf9005d911ce",
+    "parameterValueType": "21.T11148/28e5319d05800ee2d2cf",
+    "headerKey": "21.T11148/8859f932c205eece799f",
+    "headerValue": "21.T11148/b31911cd907711bbc6a7",
+    "fileKey": "21.T11148/13f20ec61e7082020933",
+    "fileType": "21.T11148/4a10d968cc4d9ab28f2f",
+    "dataKey": "21.T11148/274a25d8f6dc82f1c0e0",
+    "dataValueType": "21.T11148/a88d62ce9dc4fb652fe3",
+    "requiresAuthentication": "21.T11148/6d022a5a25a99e060900"
+    
+    
+  }
