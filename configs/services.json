@@ -1,0 +1,12 @@
+{
+  "graph_db": "http://localhost:3030/fdo_graph/query",
+  "tpm": {
+    "local_records": true,
+    "local_records_dir": "tpm_records.json",
+    "address": "",
+    "ssh_key": "",
+    "username": "",
+    "password": "",
+    "pid_enpoint": ""
+  }
+}
