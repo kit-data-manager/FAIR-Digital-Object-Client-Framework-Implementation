@@ -1,0 +1,57 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix fdoo: <https://datamanager.kit.edu/FDO-Graph#> .
+
+fdoo:ProfileOrTIPShape
+    a sh:NodeShape ;
+    sh:targetClass fdoo:Profile ;  # Targets individuals of the Profile class
+    sh:property [
+        sh:path fdoo:inheritsFromProfile ;
+        sh:or (
+            [ sh:class fdoo:TIP ]  # Relation to TIP
+            [ sh:class fdoo:KIP ]  # Relation to KIP
+        ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+fdoo:FDOShape
+    a sh:NodeShape ;
+    sh:targetClass fdoo:FDO ;  # Targets individuals of the FDO class
+    sh:property [
+        sh:path fdoo:hasProfile ;
+        sh:xone (
+            [ sh:class fdoo:KIP ]  # Relation to KIP
+            [ sh:class fdoo:TIP ]  # Relation to TIP
+        ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+fdoo:FDORecordValueShape
+    a sh:NodeShape ;
+    sh:targetClass fdoo:FDO ;  # Targets individuals of the FDO class
+    sh:property [
+        sh:path fdoo:hasAttributeValue ;
+        sh:class fdoo:RecordValue ;
+        sh:minCount 1 ;
+        sh:node fdoo:ProfileAttributeConstraint ;
+    ] .
+
+fdoo:ProfileAttributeConstraint
+    a sh:NodeShape ;
+    sh:property [
+        sh:path fdoo:hasProfile ;
+        sh:node fdoo:ProfileWithAttributeConstraint ;
+    ] .
+
+fdoo:ProfileWithAttributeConstraint
+    a sh:NodeShape ;
+    sh:property [
+        sh:path fdoo:hasAttribute ;
+        sh:node fdoo:AttributeWithKeyConstraint ;
+    ] .
+
+fdoo:AttributeWithKeyConstraint
+    a sh:NodeShape ;
+    sh:property [
+        sh:path fdoo:hasKey ;
+        sh:class fdoo:RecordValue ;
+    ] .
