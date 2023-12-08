@@ -50,7 +50,7 @@ This web application is built using Flask and integrates various backend service
 - The following figure shows an example for querying the graph using a profile name:
   ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/profiles_query_ex.png)
 - The following figure shows an example for querying the graph using an attribute name:
-  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/attributes_query_ex.png)
+  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/attribute_query_ex.png)
 - The following figure shows an example for an operation result, triggered by a previous query and displaying the option to request a new query:
   ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/operation_results_ex.png)
   
