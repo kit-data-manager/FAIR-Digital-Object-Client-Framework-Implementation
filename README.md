@@ -45,12 +45,16 @@ This web application is built using Flask and integrates various backend service
 - **Operation Execution**: Manages the execution of TPM-defined operations.
 
 ### Walking Example
-- The following figure shows an example for a query selection and query request for a profile
-  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/query_selection.png)
-- The following figure shows an example for querying the graph using a profile name:
+- An example for a query selection and query request for a profile:
+  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/query_selection_profiles.png)
+- An example for querying the graph using a profile name:
   ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/profiles_query_ex.png)
-- The following figure shows an example for an operation result, triggered by a previous query and displaying the number of processed data objects and the results storage folder, as well as the option to request a new query:
-  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/operation_results_ex.png)
-- The following figure shows an example for querying the graph using an attribute name:
+- An example for an operation result triggered by the previous request and displaying the number of processed data objects and the results storage folder, as well as the option to request a new query:
+  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/operation_results_ex_1.png)
+- An example for a query selection and query request for an attribute which is the output type of the previous operation result:
+  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/query_selection_attributes.png)
+- The following figure shows an example for querying the graph using the attribute name:
   ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/attribute_query_ex.png)
+- An example for an operation result of an attribute using the content of the resutls directory from the previous operation:
+  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/operation_results_ex_2.png)
   
