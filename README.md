@@ -45,6 +45,8 @@ This web application is built using Flask and integrates various backend service
 - **Operation Execution**: Manages the execution of TPM-defined operations.
 
 ### Walking Example
+- The following figure shows an example for a query selection and query request for a profile
+  ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/query_selection.png)
 - The following figure shows an example for querying the graph using a profile name:
   ![Alt text](https://github.com/kit-data-manager/FAIR-Digital-Object-Client-Framework-Implementation/blob/main/profiles_query_ex.png)
 - The following figure shows an example for querying the graph using an attribute name:
