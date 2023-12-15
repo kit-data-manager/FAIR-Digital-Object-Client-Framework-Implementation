@@ -779,8 +779,6 @@ fdoo:FDO_Ops_total_term_count rdf:type owl:NamedIndividual ,
                                                   fdoo:DEFC_record ,
                                                   fdoo:ELSST_record ,
                                                   fdoo:KW5_record ,
-                                                  fdoo:MRI_Zenodo_MD ,
-                                                  fdoo:MRI_b2share_MD ,
                                                   fdoo:P21_record ,
                                                   fdoo:TaDiRAH_record ,
                                                   fdoo:agrovoc_record ,
@@ -809,8 +807,6 @@ fdoo:FDO_ops_get_vocabulary rdf:type owl:NamedIndividual ,
                                                 fdoo:DEFC_record ,
                                                 fdoo:ELSST_record ,
                                                 fdoo:KW5_record ,
-                                                fdoo:MRI_Zenodo_MD ,
-                                                fdoo:MRI_b2share_MD ,
                                                 fdoo:P21_record ,
                                                 fdoo:TaDiRAH_record ,
                                                 fdoo:agrovoc_record ,
@@ -1098,8 +1094,6 @@ fdoo:MR rdf:type owl:NamedIndividual ,
 ###  https://anonymized.org/FDO-Graph#MRI_Zenodo_MD
 fdoo:MRI_Zenodo_MD rdf:type owl:NamedIndividual ,
                             fdoo:FDO ;
-                   fdoo:hasOperation fdoo:FDO_Ops_total_term_count ,
-                                     fdoo:FDO_ops_get_vocabulary ;
                    fdoo:hasProfile fdoo:Schema-based_Metadata_Type_Profile ;
                    fdoo:isMetadataFor fdoo:series0_record ,
                                       fdoo:series10_record ,
@@ -1126,8 +1120,6 @@ fdoo:MRI_Zenodo_MD rdf:type owl:NamedIndividual ,
 ###  https://anonymized.org/FDO-Graph#MRI_b2share_MD
 fdoo:MRI_b2share_MD rdf:type owl:NamedIndividual ,
                              fdoo:FDO ;
-                    fdoo:hasOperation fdoo:FDO_Ops_total_term_count ,
-                                      fdoo:FDO_ops_get_vocabulary ;
                     fdoo:hasProfile fdoo:Schema-based_Metadata_Type_Profile ;
                     fdoo:isMetadataFor fdoo:Phantom_E100_P1_EnIm1_record ,
                                        fdoo:Phantom_E101_P1_EnIm1_record ,
