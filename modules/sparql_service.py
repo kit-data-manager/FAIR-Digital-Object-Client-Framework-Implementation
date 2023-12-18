@@ -50,7 +50,7 @@ class SPARQLService:
         values_clause = ' '.join(f'"{name}"' for name in profile_names.split(','))
 
         sparql_query = f"""
-        PREFIX fdoo: <https://datamanager.kit.edu/FDO-Graph#>
+        PREFIX fdoo: <https://anonymized.org/FDO-Graph#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         SELECT ?profileName ?operationName ?operationLabel ?outputName ?outputLabel ?fdoLabel
         WHERE {{
@@ -59,7 +59,7 @@ class SPARQLService:
 
         # Match profiles by local name
         ?profile a fdoo:Profile .
-        BIND(REPLACE(STR(?profile), "https://datamanager.kit.edu/FDO-Graph#", "") AS ?profileName)
+        BIND(REPLACE(STR(?profile), "https://anonymized.org/FDO-Graph#", "") AS ?profileName)
         FILTER(?profileLocalName IN (?profileName))
 
         # Match FDOs related to profiles
@@ -67,11 +67,11 @@ class SPARQLService:
         
         # Match operations related to FDOs and retrieve their labels
         ?operation a fdoo:Operation ; fdoo:isOperationFor ?fdo ; rdfs:label ?operationLabel .
-        BIND(REPLACE(STR(?operation), "https://datamanager.kit.edu/FDO-Graph#", "") AS ?operationName)
+        BIND(REPLACE(STR(?operation), "https://anonymized.org/FDO-Graph#", "") AS ?operationName)
         # Match attributes returned by operations
         ?operation fdoo:returns ?attribute .
         ?attribute a fdoo:Attribute ; rdfs:label ?outputLabel
-        BIND(REPLACE(STR(?attribute), "https://datamanager.kit.edu/FDO-Graph#", "") AS ?outputName)
+        BIND(REPLACE(STR(?attribute), "https://anonymized.org/FDO-Graph#", "") AS ?outputName)
         }}
         """
         return sparql_query
@@ -90,13 +90,13 @@ class SPARQLService:
         # SPARQL query template with placeholders for attributes
         sparql_query = f"""
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-        PREFIX fdoo: <https://datamanager.kit.edu/FDO-Graph#>
+        PREFIX fdoo: <https://anonymized.org/FDO-Graph#>
 
         SELECT ?attributeName ?operationName ?operationLabel ?outputAttributeName ?outputAttributeLabel
         WHERE {{
             VALUES ?attributeLocalName {{ {attributes_str} }}
             ?attribute a fdoo:Attribute .
-            BIND(REPLACE(STR(?attribute), "https://datamanager.kit.edu/FDO-Graph#", "") AS ?attributeName)
+            BIND(REPLACE(STR(?attribute), "https://anonymized.org/FDO-Graph#", "") AS ?attributeName)
             FILTER(?attributeLocalName IN (?attributeName))
 
             ?inputSet a fdoo:Input_Set ; fdoo:containsAttribute ?attribute .
@@ -110,10 +110,10 @@ class SPARQLService:
             }}
             
             ?operation a fdoo:Operation ; fdoo:requires ?inputSet ; rdfs:label ?operationLabel .
-            BIND(REPLACE(STR(?operation), "https://datamanager.kit.edu/FDO-Graph#", "") AS ?operationName)
+            BIND(REPLACE(STR(?operation), "https://anonymized.org/FDO-Graph#", "") AS ?operationName)
             ?operation a fdoo:Operation ; fdoo:returns ?outputAttribute .
             ?outputAttribute rdfs:label ?outputAttributeLabel
-            BIND(REPLACE(STR(?outputAttribute), "https://datamanager.kit.edu/FDO-Graph#", "") AS ?outputAttributeName)
+            BIND(REPLACE(STR(?outputAttribute), "https://anonymized.org/FDO-Graph#", "") AS ?outputAttributeName)
         }}
         """
         return sparql_query
